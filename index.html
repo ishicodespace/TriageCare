@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TriageCare AI | Intelligent Patient Intake</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">TriageCare<span class="highlight">AI</span></a>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#how-it-works">How it Works</a></li>
+                <li><a href="#demo" class="btn-primary">Try Demo</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <span class="badge">Available for 24/7 Triage</span>
+                <h1>Intelligent Patient <br>Intake & <span class="gradient-text">Automation.</span></h1>
+                <p>We are the AI partner for hospitals who want to streamline operations without compromising care.
+                    Symptom intake, scheduling, and engagement—handled.</p>
+                <div class="hero-btns">
+                    <button id="start-triage-btn" class="btn-primary large">Start Triage Check</button>
+                    <button class="btn-secondary large">View Demo</button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="mockup-card">
+                    <div class="chat-bubble bot">
+                        <p>Hello! I'm TriageCare AI. Please describe your symptoms.</p>
+                    </div>
+                    <div class="chat-bubble user">
+                        <p>I have a severe headache and dizziness since morning.</p>
+                    </div>
+                    <div class="chat-bubble bot">
+                        <p>I understand. Based on your symptoms, I recommend seeing a General Physician.</p>
+                    </div>
+                    <div class="status-indicator">
+                        <span class="dot"></span> Triage System Active
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Selected Work</h2>
+                <p>Recent products shipped to production.</p>
+            </div>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="icon-box">🩺</div>
+                    <h3>Conversational Intake</h3>
+                    <p>Patients describe symptoms in natural language. Our NLP engine interprets and categorizes them
+                        instantly.</p>
+                    <a href="#" class="feature-link">View Case Study &rarr;</a>
+                </div>
+                <div class="feature-card">
+                    <div class="icon-box">📅</div>
+                    <h3>Smart Scheduling</h3>
+                    <p>Automated booking, rescheduling, and cancellations directly integrated with hospital calendars.
+                    </p>
+                    <a href="#" class="feature-link">View Case Study &rarr;</a>
+                </div>
+                <div class="feature-card">
+                    <div class="icon-box">🔔</div>
+                    <h3>Patient Engagement</h3>
+                    <p>Automated reminders and preparation instructions to ensure patients arrive ready and on time.</p>
+                    <a href="#" class="feature-link">View Case Study &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="demo" class="demo-section">
+        <div class="container">
+            <div class="demo-container">
+                <h2>Experience the Future</h2>
+                <p>Try our interactive demo to see how TriageCare AI processes patient requests.</p>
+                <div class="demo-interface">
+                    <div id="chat-window" class="chat-window"></div>
+                    <div class="input-area">
+                        <input type="text" id="user-input" placeholder="Type your symptoms here...">
+                        <button id="send-btn">Send</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 TriageCare AI. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="config.js"></script>
+    <script src="medical-knowledge.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

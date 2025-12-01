@@ -1,0 +1,118 @@
+/* Light Mode Theme */
+:root[data-theme="light"] {
+    --bg-color: #ffffff;
+    --card-bg: #f8fafc;
+    --primary-color: #6366f1;
+    --primary-glow: rgba(99, 102, 241, 0.3);
+    --secondary-color: #a855f7;
+    --text-color: #0f172a;
+    --text-muted: #64748b;
+    --border-color: rgba(15, 23, 42, 0.1);
+    --gradient-btn: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+    --grid-color: rgba(15, 23, 42, 0.05);
+    --glow-color: rgba(99, 102, 241, 0.08);
+    --text-gradient: linear-gradient(to right, #4f46e5, #9333ea);
+}
+
+body[data-theme="light"] {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    background-image:
+        linear-gradient(var(--grid-color) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+}
+
+body[data-theme="light"]::before {
+    background: radial-gradient(circle at center, var(--glow-color) 0%, transparent 70%);
+}
+
+/* Light mode specific styles */
+body[data-theme="light"] .navbar {
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+body[data-theme="light"] .nav-links {
+    background: rgba(15, 23, 42, 0.05);
+    border-color: rgba(15, 23, 42, 0.1);
+}
+
+body[data-theme="light"] .nav-links a:hover,
+body[data-theme="light"] .nav-links a.active {
+    color: var(--text-color);
+    background: rgba(15, 23, 42, 0.1);
+}
+
+body[data-theme="light"] .feature-card {
+    background: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    border-color: rgba(15, 23, 42, 0.1);
+}
+
+body[data-theme="light"] .feature-card:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    background: #ffffff;
+}
+
+body[data-theme="light"] .demo-interface {
+    background: #ffffff;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 20px 50px rgba(0, 0, 0, 0.1);
+}
+
+body[data-theme="light"] .chat-window {
+    background: #f8fafc;
+}
+
+body[data-theme="light"] .message.bot .text {
+    background: #e2e8f0;
+    color: var(--text-color);
+}
+
+body[data-theme="light"] .message.user .text {
+    color: #ffffff;
+}
+
+body[data-theme="light"] .mockup-card {
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 20px 50px rgba(0, 0, 0, 0.1);
+}
+
+body[data-theme="light"] .chat-bubble.bot {
+    background: #e2e8f0;
+    color: var(--text-color);
+}
+
+body[data-theme="light"] .input-area {
+    background: #ffffff;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+body[data-theme="light"] .input-area input {
+    background: #f1f5f9;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: var(--text-color);
+}
+
+body[data-theme="light"] .input-area input::placeholder {
+    color: var(--text-muted);
+}
+
+body[data-theme="light"] .input-area input:focus {
+    background: #ffffff;
+    border-color: var(--primary-color);
+}
+
+body[data-theme="light"] footer {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+body[data-theme="light"] .hero-text .badge {
+    background: rgba(99, 102, 241, 0.1);
+    color: #4f46e5;
+    border-color: rgba(99, 102, 241, 0.2);
+}
+
+body[data-theme="light"] .icon-box {
+    background: rgba(99, 102, 241, 0.1);
+    color: #4f46e5;
+}

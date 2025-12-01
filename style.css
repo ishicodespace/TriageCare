@@ -9,6 +9,7 @@
     --border-color: rgba(255, 255, 255, 0.1);
     --font-main: 'Inter', sans-serif;
     --gradient-btn: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+    --text-gradient: linear-gradient(to right, #fff, #94a3b8);
 }
 
 * {
@@ -200,7 +201,7 @@ body::before {
 }
 
 .gradient-text {
-    background: linear-gradient(to right, #fff, #94a3b8);
+    background: var(--text-gradient);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -478,9 +479,10 @@ body::before {
 .input-area {
     background: rgba(15, 23, 42, 0.95);
     border-top: 1px solid var(--border-color);
-    padding: 25px;
+    padding: 20px;
     display: flex;
-    gap: 10px;
+    gap: 15px;
+    align-items: center;
 }
 
 .input-area input {
@@ -489,7 +491,7 @@ body::before {
     border: 1px solid var(--border-color);
     padding: 15px 25px;
     border-radius: 50px;
-    color: white;
+    color: var(--text-color);
     outline: none;
     transition: border-color 0.3s;
 }
@@ -508,37 +510,56 @@ body::before {
     color: white;
     border: none;
     border-radius: 50px;
-    padding: 10px 30px;
+    padding: 15px 25px;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.2s;
+    min-width: 80px;
+    font-size: 0.95rem;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
 }
 
 .input-area button:hover {
     transform: translateY(-1px);
-    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+    box-shadow: 0 6px 20px rgba(99, 102, 241, 0.5);
 }
 
-.typing .text {
-    position: relative;
-    color: var(--text-muted) !important;
+.input-area button:active {
+    transform: translateY(0);
 }
 
-.typing .text::after {
-    content: '...';
-    animation: typing 1.5s infinite;
+.input-area button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Typing Indicator */
+.typing-indicator {
+    display: inline-block;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    animation: typing 1.4s infinite;
 }
 
 @keyframes typing {
-    0%, 60% { opacity: 1; }
-    30% { opacity: 0.5; }
+
+    0%,
+    100% {
+        opacity: 0.3;
+    }
+
+    50% {
+        opacity: 1;
+    }
 }
 
 /* Footer */
 footer {
-    padding: 40px 0;
-    text-align: center;
+    padding: 60px 0;
     border-top: 1px solid var(--border-color);
+    margin-top: 50px;
+    text-align: center;
 }
 
 footer p {
