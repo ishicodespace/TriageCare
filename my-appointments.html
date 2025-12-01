@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Appointments | TriageCare AI</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <svg class="logo-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <path d="M22 12h-4l-3 9L9 3l-3 9H2" stroke="url(#logo-gradient)" />
+                    <defs>
+                        <linearGradient id="logo-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="#0ea5e9" />
+                            <stop offset="100%" stop-color="#10b981" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+                TriageCare<span class="highlight">AI</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="specialists.html">Specialists</a></li>
+                <li><a href="find-doctor.html">Find Doctor</a></li>
+                <li><a href="my-appointments.html" class="active">My Appointments</a></li>
+            </ul>
+            <div class="auth-nav" id="auth-nav"></div>
+        </div>
+    </nav>
+
+    <main class="page-content">
+        <section class="my-appointments-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">Your Healthcare Journey</span>
+                    <h2>My Appointments</h2>
+                    <p>Manage your upcoming appointments, view preparation instructions, and track your health journey.
+                    </p>
+                </div>
+
+                <!-- Appointment Tabs -->
+                <div class="appointment-tabs">
+                    <button class="tab-btn active" data-tab="upcoming">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                            <line x1="16" y1="2" x2="16" y2="6" />
+                            <line x1="8" y1="2" x2="8" y2="6" />
+                            <line x1="3" y1="10" x2="21" y2="10" />
+                        </svg>
+                        Upcoming
+                        <span class="tab-count">2</span>
+                    </button>
+                    <button class="tab-btn" data-tab="past">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="12" cy="12" r="10" />
+                            <polyline points="12 6 12 12 16 14" />
+                        </svg>
+                        Past
+                    </button>
+                    <button class="tab-btn" data-tab="cancelled">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="12" cy="12" r="10" />
+                            <line x1="15" y1="9" x2="9" y2="15" />
+                            <line x1="9" y1="9" x2="15" y2="15" />
+                        </svg>
+                        Cancelled
+                    </button>
+                </div>
+
+                <!-- Upcoming Appointments Tab -->
+                <div class="tab-content active" id="upcoming-tab">
+                    <div class="appointments-list" id="appointments-list">
+                        <!-- Will be populated by JavaScript or show empty state -->
+                    </div>
+
+                    <!-- Empty State (shown when no appointments) -->
+                    <div class="empty-state hidden" id="empty-upcoming">
+                        <div class="empty-icon">
+                            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                                <line x1="16" y1="2" x2="16" y2="6" />
+                                <line x1="8" y1="2" x2="8" y2="6" />
+                                <line x1="3" y1="10" x2="21" y2="10" />
+                            </svg>
+                        </div>
+                        <h3>No Upcoming Appointments</h3>
+                        <p>You don't have any scheduled appointments. Find a doctor and book your next visit.</p>
+                        <a href="find-doctor.html" class="btn-primary">Find a Doctor</a>
+                    </div>
+                </div>
+
+                <!-- Past Appointments Tab -->
+                <div class="tab-content" id="past-tab">
+                    <div class="past-appointments-list">
+                        <div class="past-appointment-card">
+                            <div class="appointment-date-badge">
+                                <span class="day">25</span>
+                                <span class="month">Nov</span>
+                            </div>
+                            <div class="appointment-details">
+                                <h4>General Checkup</h4>
+                                <p class="doctor-name">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                                        <circle cx="12" cy="7" r="4" />
+                                    </svg>
+                                    Dr. Priya Mehta
+                                </p>
+                                <p class="location">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                                        <circle cx="12" cy="10" r="3" />
+                                    </svg>
+                                    Apollo Hospital, Mumbai
+                                </p>
+                            </div>
+                            <div class="appointment-status">
+                                <span class="status-completed">Completed</span>
+                                <button class="btn-secondary btn-sm">View Summary</button>
+                            </div>
+                        </div>
+
+                        <div class="past-appointment-card">
+                            <div class="appointment-date-badge">
+                                <span class="day">18</span>
+                                <span class="month">Nov</span>
+                            </div>
+                            <div class="appointment-details">
+                                <h4>Cardiology Follow-up</h4>
+                                <p class="doctor-name">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                                        <circle cx="12" cy="7" r="4" />
+                                    </svg>
+                                    Dr. Vikram Singh
+                                </p>
+                                <p class="location">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                                        <circle cx="12" cy="10" r="3" />
+                                    </svg>
+                                    Fortis Heart Center, Delhi
+                                </p>
+                            </div>
+                            <div class="appointment-status">
+                                <span class="status-completed">Completed</span>
+                                <button class="btn-secondary btn-sm">View Summary</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cancelled Appointments Tab -->
+                <div class="tab-content" id="cancelled-tab">
+                    <div class="empty-state">
+                        <div class="empty-icon">
+                            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <circle cx="12" cy="12" r="10" />
+                                <path d="M9 12l2 2 4-4" />
+                            </svg>
+                        </div>
+                        <h3>No Cancelled Appointments</h3>
+                        <p>You haven't cancelled any appointments. Great job keeping your healthcare on track!</p>
+                    </div>
+                </div>
+
+                <!-- Preparation Tips Section -->
+                <div class="preparation-section">
+                    <h3>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="M12 16v-4M12 8h.01" />
+                        </svg>
+                        General Preparation Tips
+                    </h3>
+                    <div class="tips-grid">
+                        <div class="tip-card">
+                            <div class="tip-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                    <polyline points="14 2 14 8 20 8" />
+                                    <line x1="16" y1="13" x2="8" y2="13" />
+                                    <line x1="16" y1="17" x2="8" y2="17" />
+                                    <polyline points="10 9 9 9 8 9" />
+                                </svg>
+                            </div>
+                            <h4>Bring Documents</h4>
+                            <p>Carry your ID, insurance card, and any previous medical records or test reports.</p>
+                        </div>
+                        <div class="tip-card">
+                            <div class="tip-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M18 20V10M12 20V4M6 20v-6" />
+                                </svg>
+                            </div>
+                            <h4>List Your Symptoms</h4>
+                            <p>Write down your symptoms, when they started, and any patterns you've noticed.</p>
+                        </div>
+                        <div class="tip-card">
+                            <div class="tip-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                                </svg>
+                            </div>
+                            <h4>Current Medications</h4>
+                            <p>Bring a list of all medications, supplements, and vitamins you're currently taking.</p>
+                        </div>
+                        <div class="tip-card">
+                            <div class="tip-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <polyline points="12 6 12 12 16 14" />
+                                </svg>
+                            </div>
+                            <h4>Arrive Early</h4>
+                            <p>Arrive 15 minutes before your appointment to complete any paperwork.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" stroke-width="2">
+                        <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+                    </svg>
+                    TriageCare<span class="highlight">AI</span>
+                </div>
+                <p>&copy; 2025 TriageCare AI. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="auth.js"></script>
+    <script src="my-appointments.js"></script>
+</body>
+
+</html>
