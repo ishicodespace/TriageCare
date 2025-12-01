@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Key Test - TriageCare AI</title>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #030712;
+            color: #f8fafc;
+            padding: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .test-box {
+            background: rgba(15, 23, 42, 0.8);
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin: 20px 0;
+        }
+
+        button {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            margin: 10px 5px;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .success {
+            border-left: 4px solid #22c55e;
+        }
+
+        .error {
+            border-left: 4px solid #ef4444;
+        }
+
+        .warning {
+            border-left: 4px solid #f59e0b;
+        }
+
+        code {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+
+        h1 {
+            color: #6366f1;
+        }
+
+        h2 {
+            color: #94a3b8;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>🔧 TriageCare AI - API Key Test</h1>
+
+    <div class="test-box">
+        <h2>Step 1: Check if config.js is loaded</h2>
+        <button onclick="checkConfig()">Test Config</button>
+        <div id="config-result"></div>
+    </div>
+
+    <div class="test-box">
+        <h2>Step 2: Test Gemini API Connection</h2>
+        <button onclick="testAPI()">Test API</button>
+        <div id="api-result"></div>
+    </div>
+
+    <div class="test-box">
+        <h2>📝 Quick Setup Guide</h2>
+        <ol style="line-height: 2;">
+            <li>Go to <a href="https://aistudio.google.com/app/apikey" target="_blank" style="color: #6366f1;">Google AI
+                    Studio</a></li>
+            <li>Click "Create API Key"</li>
+            <li>Copy the key</li>
+            <li>Open <code>config.js</code></li>
+            <li>Replace <code>'YOUR_API_KEY_HERE'</code> with your key</li>
+            <li>Save the file and refresh this page</li>
+        </ol>
+    </div>
+
+    <script src="config.js"></script>
+    <script>
+        function checkConfig() {
+            const resultDiv = document.getElementById('config-result');
+
+            if (typeof CONFIG === 'undefined') {
+                resultDiv.innerHTML = `
+                    <div class="result error">
+                        <strong>❌ Error:</strong> config.js not loaded!<br>
+                        Make sure config.js is in the same folder as this file.
+                    </div>
+                `;
+                return;
+            }
+
+            if (!CONFIG.GEMINI_API_KEY || CONFIG.GEMINI_API_KEY === 'YOUR_API_KEY_HERE') {
+                resultDiv.innerHTML = `
+                    <div class="result warning">
+                        <strong>⚠️ Warning:</strong> API key not configured!<br>
+                        Please add your Gemini API key to config.js
+                    </div>
+                `;
+                return;
+            }
+
+            const keyPreview = CONFIG.GEMINI_API_KEY.substring(0, 10) + '...';
+            resultDiv.innerHTML = `
+                <div class="result success">
+                    <strong>✅ Success:</strong> Config loaded!<br>
+                    API Key: <code>${keyPreview}</code><br>
+                    API URL: <code>${CONFIG.GEMINI_API_URL}</code>
+                </div>
+            `;
+        }
+
+        async function testAPI() {
+            const resultDiv = document.getElementById('api-result');
+
+            if (!CONFIG.GEMINI_API_KEY || CONFIG.GEMINI_API_KEY === 'YOUR_API_KEY_HERE') {
+                resultDiv.innerHTML = `
+                    <div class="result error">
+                        <strong>❌ Error:</strong> Please configure your API key first!
+                    </div>
+                `;
+                return;
+            }
+
+            resultDiv.innerHTML = `
+                <div class="result">
+                    <strong>🔄 Testing...</strong> Calling Gemini API...
+                </div>
+            `;
+
+            try {
+                const requestBody = {
+                    contents: [{
+                        parts: [{ text: "Say 'Hello! The API is working!' in a friendly way." }]
+                    }]
+                };
+
+                const response = await fetch(`${CONFIG.GEMINI_API_URL}?key=${CONFIG.GEMINI_API_KEY}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(requestBody)
+                });
+
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    throw new Error(`API Error ${response.status}: ${JSON.stringify(errorData)}`);
+                }
+
+                const data = await response.json();
+                const aiResponse = data.candidates[0].content.parts[0].text;
+
+                resultDiv.innerHTML = `
+                    <div class="result success">
+                        <strong>✅ Success!</strong> API is working!<br><br>
+                        <strong>AI Response:</strong><br>
+                        "${aiResponse}"<br><br>
+                        <small>You can now use the chatbot in index.html</small>
+                    </div>
+                `;
+
+            } catch (error) {
+                console.error('API Test Error:', error);
+                resultDiv.innerHTML = `
+                    <div class="result error">
+                        <strong>❌ Error:</strong> ${error.message}<br><br>
+                        <strong>Common issues:</strong><br>
+                        • Invalid API key<br>
+                        • API not enabled in Google Cloud<br>
+                        • Network/CORS issues<br>
+                        • Rate limit exceeded<br><br>
+                        Check the browser console (F12) for more details.
+                    </div>
+                `;
+            }
+        }
+
+        // Auto-check on load
+        window.onload = () => {
+            checkConfig();
+        };
+    </script>
+</body>
+
+</html>
