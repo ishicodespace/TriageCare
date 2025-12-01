@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Specialists | TriageCare AI</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <svg class="logo-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <path d="M22 12h-4l-3 9L9 3l-3 9H2" stroke="url(#logo-gradient)" />
+                    <defs>
+                        <linearGradient id="logo-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="#0ea5e9" />
+                            <stop offset="100%" stop-color="#10b981" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+                TriageCare<span class="highlight">AI</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="specialists.html" class="active">Specialists</a></li>
+                <li><a href="find-doctor.html">Find Doctor</a></li>
+                <li><a href="index.html#demo">Try Demo</a></li>
+            </ul>
+            <div class="auth-nav" id="auth-nav">
+                <!-- Auth buttons will be injected by auth.js -->
+            </div>
+        </div>
+    </nav>
+
+    <main class="page-content">
+        <section class="specialists-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">Expert Care</span>
+                    <h2>Find the Right Specialist</h2>
+                    <p>Our AI matches your symptoms to the most appropriate medical specialist.</p>
+                </div>
+                <div class="specialists-grid">
+                    <div class="specialist-card">
+                        <div class="specialist-icon" data-accent="#0ea5e9">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+                            </svg>
+                        </div>
+                        <h3>General Physician</h3>
+                        <p class="specialist-desc">Primary care for common illnesses and health maintenance</p>
+                        <div class="conditions-list">
+                            <span class="condition-tag">Fever</span>
+                            <span class="condition-tag">Cold & Flu</span>
+                            <span class="condition-tag">Fatigue</span>
+                            <span class="condition-tag">General Checkup</span>
+                        </div>
+                    </div>
+                    <div class="specialist-card">
+                        <div class="specialist-icon cardiologist">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path
+                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                            </svg>
+                        </div>
+                        <h3>Cardiologist</h3>
+                        <p class="specialist-desc">Heart and cardiovascular system specialists</p>
+                        <div class="conditions-list">
+                            <span class="condition-tag emergency">Chest Pain</span>
+                            <span class="condition-tag">Palpitations</span>
+                            <span class="condition-tag">High BP</span>
+                            <span class="condition-tag">Shortness of Breath</span>
+                        </div>
+                    </div>
+                    <div class="specialist-card">
+                        <div class="specialist-icon neurologist">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <circle cx="12" cy="12" r="10" />
+                                <path d="M12 16v-4M12 8h.01" />
+                            </svg>
+                        </div>
+                        <h3>Neurologist</h3>
+                        <p class="specialist-desc">Brain, spine, and nervous system experts</p>
+                        <div class="conditions-list">
+                            <span class="condition-tag">Headaches</span>
+                            <span class="condition-tag">Dizziness</span>
+                            <span class="condition-tag">Numbness</span>
+                            <span class="condition-tag">Memory Issues</span>
+                        </div>
+                    </div>
+                    <div class="specialist-card">
+                        <div class="specialist-icon orthopedic">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M6 3v18M18 3v18M6 9h12M6 15h12" />
+                            </svg>
+                        </div>
+                        <h3>Orthopedic</h3>
+                        <p class="specialist-desc">Bones, joints, and musculoskeletal system</p>
+                        <div class="conditions-list">
+                            <span class="condition-tag">Joint Pain</span>
+                            <span class="condition-tag">Back Pain</span>
+                            <span class="condition-tag">Fractures</span>
+                            <span class="condition-tag">Sports Injuries</span>
+                        </div>
+                    </div>
+                    <div class="specialist-card">
+                        <div class="specialist-icon gastro">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <circle cx="12" cy="12" r="10" />
+                                <path d="M8 12h8M12 8v8" />
+                            </svg>
+                        </div>
+                        <h3>Gastroenterologist</h3>
+                        <p class="specialist-desc">Digestive system and gastrointestinal health</p>
+                        <div class="conditions-list">
+                            <span class="condition-tag">Stomach Pain</span>
+                            <span class="condition-tag">Acid Reflux</span>
+                            <span class="condition-tag">Nausea</span>
+                            <span class="condition-tag">Digestive Issues</span>
+                        </div>
+                    </div>
+                    <div class="specialist-card">
+                        <div class="specialist-icon dermatologist">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <circle cx="12" cy="12" r="3" />
+                                <path
+                                    d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+                            </svg>
+                        </div>
+                        <h3>Dermatologist</h3>
+                        <p class="specialist-desc">Skin, hair, and nail conditions</p>
+                        <div class="conditions-list">
+                            <span class="condition-tag">Rashes</span>
+                            <span class="condition-tag">Acne</span>
+                            <span class="condition-tag">Skin Allergies</span>
+                            <span class="condition-tag">Hair Loss</span>
+                        </div>
+                    </div>
+                    <div class="specialist-card">
+                        <div class="specialist-icon ophthalmologist">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                                <circle cx="12" cy="12" r="3" />
+                            </svg>
+                        </div>
+                        <h3>Ophthalmologist</h3>
+                        <p class="specialist-desc">Eye care and vision specialists</p>
+                        <div class="conditions-list">
+                            <span class="condition-tag">Blurred Vision</span>
+                            <span class="condition-tag">Eye Pain</span>
+                            <span class="condition-tag">Redness</span>
+                            <span class="condition-tag">Vision Loss</span>
+                        </div>
+                    </div>
+                    <div class="specialist-card">
+                        <div class="specialist-icon pediatrician">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                                <circle cx="8.5" cy="7" r="4" />
+                                <path d="M20 8v6M23 11h-6" />
+                            </svg>
+                        </div>
+                        <h3>Pediatrician</h3>
+                        <p class="specialist-desc">Children's health from infancy to adolescence</p>
+                        <div class="conditions-list">
+                            <span class="condition-tag">Child Fever</span>
+                            <span class="condition-tag">Growth Issues</span>
+                            <span class="condition-tag">Vaccinations</span>
+                            <span class="condition-tag">Child Infections</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cta-section">
+                    <h3>Not sure which specialist you need?</h3>
+                    <p>Use our AI-powered symptom checker to get a recommendation</p>
+                    <a href="index.html#demo" class="btn-primary large">Start Health Check</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" stroke-width="2">
+                        <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+                    </svg>
+                    TriageCare<span class="highlight">AI</span>
+                </div>
+                <ul class="footer-links">
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+                <div class="footer-disclaimer">
+                    <strong>⚠️ Medical Disclaimer:</strong> TriageCare AI is designed to provide general health
+                    information and triage recommendations only. It is not a substitute for professional medical advice,
+                    diagnosis, or treatment.
+                </div>
+                <p>&copy; 2025 TriageCare AI. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="auth.js"></script>
+</body>
+
+</html>
